@@ -3,7 +3,7 @@ db_file = tempfile.NamedTemporaryFile()
 
 
 class Config(object):
-    SECRET_KEY = 'REPLACE ME'
+    SECRET_KEY = '!23v0_x'
 
 
 class ProdConfig(Config):
