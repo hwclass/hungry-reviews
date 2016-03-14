@@ -28,3 +28,23 @@ class LoginForm(Form):
             return False
 
         return True
+
+class ReviewForm(Form):
+    user_id = TextField(u'user_id', validators=[])
+    grade = TextField(u'grade', validators=[validators.required()])
+    optional_comment = TextField(u'comment', validators=[])
+
+    def validate(self):
+        check_validate = super(ReviewForm, self).validate()
+
+        # if our validators do not pass
+        if not check_validate:
+            return False
+
+        # Does our the exist
+        grade = Review.query.filter_by(grade=self.grade.data).first()
+        if not grade:
+            self.grade.errors.append('Please fill the grade')
+            return False
+
+        return True

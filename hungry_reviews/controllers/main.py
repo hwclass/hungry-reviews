@@ -36,7 +36,7 @@ def logout():
     return redirect(url_for(".home"))
 
 
-@main.route("/restricted")
+@main.route("/grades")
 @login_required
-def restricted():
-    return "You can only see this if you are logged in!", 200
+def grades():
+    return render_template('grades.html')

@@ -40,3 +40,18 @@ class User(db.Model, UserMixin):
 
     def __repr__(self):
         return '<User %r>' % self.username
+
+class Review(db.Model):
+    __tablename__ = 'Review'
+    id = db.Column(db.Integer(), primary_key=True)
+    user_id = db.Column(db.Integer())
+    grade = db.Column(db.Integer())
+    comment = db.Column(db.String())
+
+    def __init__(self, user_id, grade, comment):
+        self.user_id = user_id
+        self.grade = grade
+        self.comment = comment
+
+    def __repr__(self):
+        return '<Review %r>' % self.grade
