@@ -21,13 +21,13 @@
             <p>
                 <form role="form" action="{{ url_for('.grades') }}" method="post">
                     <div class="form-group">
-                        {{ form.grades.label }}
-                        {% if form.grades.errors %}
-                            {% for e in form.grades.errors %}
+                        {{ form.grade.label }}
+                        {% if form.grade.errors %}
+                            {% for e in form.grade.errors %}
                                 <p class="help-block">{{ e }}</p>
                             {% endfor %}
                         {% endif %}
-                        {{ form.grades(class_="form-control") }}
+                        {{ form.grade(class_="form-control") }}
                     </div>
                 </form>
             </p>

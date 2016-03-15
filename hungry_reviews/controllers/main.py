@@ -3,6 +3,7 @@ from flask.ext.login import login_user, logout_user, login_required
 
 from hungry_reviews.extensions import cache
 from hungry_reviews.forms import LoginForm
+from hungry_reviews.forms import ReviewForm
 from hungry_reviews.models import User
 
 main = Blueprint('main', __name__)
@@ -39,4 +40,5 @@ def logout():
 @main.route("/grades")
 @login_required
 def grades():
-    return render_template('grades.html')
+    form = ReviewForm()
+    return render_template('grades.html', form=form)
