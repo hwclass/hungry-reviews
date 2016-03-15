@@ -37,7 +37,7 @@ def logout():
     return redirect(url_for(".home"))
 
 
-@main.route("/grades")
+@main.route("/grades", methods=["GET", "POST"])
 @login_required
 def grades():
     form = ReviewForm()
