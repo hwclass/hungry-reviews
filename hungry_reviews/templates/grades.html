@@ -17,9 +17,10 @@
     -->
     <div class="row">
         <div class="col-lg-12">
-            <h3>Enter New Grade</h3>
+            <h3>Enter New Review</h3>
             <p>
                 <form role="form" action="{{ url_for('.grades') }}" method="post">
+                    {{ form.csrf_token }}
                     <div class="form-group">
                         {{ form.grade.label }}
                         {% if form.grade.errors %}
@@ -27,8 +28,17 @@
                                 <p class="help-block">{{ e }}</p>
                             {% endfor %}
                         {% endif %}
-                        {{ form.grade(class_="form-control") }}
+                        {{ form.grade(class_="grade") }}
+                        <br/>
+                        {{ form.optional_comment.label }}
+                        {% if form.optional_comment.errors %}
+                            {% for e in form.optional_comment.errors %}
+                                <p class="help-block">{{ e }}</p>
+                            {% endfor %}
+                        {% endif %}
+                        {{ form.optional_comment(class_="optional_comment") }}
                     </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </p>
         </div>

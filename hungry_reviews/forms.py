@@ -47,4 +47,10 @@ class ReviewForm(Form):
             self.grade.errors.append('Please fill the grade')
             return False
 
+        # Does our the exist
+        optional_comment = Review.query.filter_by(grade=self.optional_comment.data).first()
+        if not optional_comment:
+            self.grade.errors.append('Please fill the optional comment')
+            return False
+
         return True
