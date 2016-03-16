@@ -22,10 +22,12 @@ def create_app(object_name):
 
     Arguments:
         object_name: the python path of the config object,
-                     e.g. appname.settings.ProdConfig
+                     e.g. hungry_reviews.settings.ProdConfig
     """
 
     app = Flask(__name__)
+
+    print object_name
 
     app.config.from_object(object_name)
 
@@ -34,6 +36,10 @@ def create_app(object_name):
 
     # initialize the debug tool bar
     debug_toolbar.init_app(app)
+
+    #print eval(object_name)
+
+    #db.app = eval(object_name).ENV
 
     # initialize SQLAlchemy
     db.init_app(app)

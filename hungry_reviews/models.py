@@ -42,6 +42,7 @@ class User(db.Model, UserMixin):
         return '<User %r>' % self.username
 
 class Review(db.Model):
+    print 'db.Model : Review'
     __tablename__ = 'Review'
     id = db.Column(db.Integer(), primary_key=True)
     user_id = db.Column(db.Integer())

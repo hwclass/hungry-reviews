@@ -3,6 +3,7 @@ from wtforms import TextField, PasswordField
 from wtforms import validators
 
 from .models import User
+from .models import Review
 
 
 class LoginForm(Form):
