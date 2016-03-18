@@ -1,0 +1,23 @@
+{
+  "name": "hungry-reviews",
+  "version": "1.0.0",
+  "description": "An experimental coding adventure with Python, Node and ReThinkDB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hwclass/hungry-reviews.git"
+  },
+  "keywords": [
+    "wolt",
+    "challenge"
+  ],
+  "author": "hwclass",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hwclass/hungry-reviews/issues"
+  },
+  "homepage": "https://github.com/hwclass/hungry-reviews"
+}
