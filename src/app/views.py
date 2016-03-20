@@ -67,4 +67,5 @@ tasks = [
 
 @app.route('/api/v1.0/reviews', methods=['GET'])
 def get_tasks():
+    tasks = list(r.table('todos').run(g.rdb_conn))
     return jsonify({'tasks': tasks})
