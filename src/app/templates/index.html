@@ -19,43 +19,14 @@
 </form>
 
 <!-- Projects Row -->
-<div class="row">
-    <div class="col-md-4 portfolio-item">
-        <a href="#">
-            <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-        </a>
-        <h3>
-            <a href="#">Project Name</a>
-        </h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-    </div>
-    <div class="col-md-4 portfolio-item">
-        <a href="#">
-            <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-        </a>
-        <h3>
-            <a href="#">Project Name</a>
-        </h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-    </div>
-    <div class="col-md-4 portfolio-item">
-        <a href="#">
-            <img class="img-responsive" src="http://placehold.it/700x400" alt="">
-        </a>
-        <h3>
-            <a href="#">Project Name</a>
-        </h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-    </div>
-</div>
-<!-- /.row -->
 
-<ul class="grid">
+<section class="grid">
 	{% for review in reviews %}
-		<li class="grid-item">
-	  		<p>{{ review.point }}</p>
-	  		<p>{{ review.optional_comment }}</p>
-		</li>
+		<article class="grid-item">
+			<img src="http://i.imgur.com/sDLIAZD.png" alt="">
+	  		<h4>Point : {{ review.point }}</h4>
+	  		<p>Comment : {{ review.optional_comment }}</p>
+		</article>
 	{% endfor %}
 </ul>
 {% endblock %}

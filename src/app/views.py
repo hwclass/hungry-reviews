@@ -2,6 +2,8 @@ from flask import render_template, url_for, redirect, g, request, jsonify ##
 from app import app
 from .forms import ReviewForm
 import json
+from itertools import groupby
+from collections import defaultdict
 
 # rethink imports
 import rethinkdb as r
@@ -53,6 +55,38 @@ def index():
 
 @app.route('/api/v1.0/reviews', methods=['GET'])
 def get_reviews():
-    grouped_list_of_reviews = list(r.table(TABLE_NAME).group('user_id', 'point', 'optional_comment', multi=True).run(g.rdb_conn))
+    # grouped_list_of_reviews = list(r.table(TABLE_NAME).get_all('point', 'optional_comment').group('user_id').run(g.rdb_conn))
+    # grouped_list_of_reviews = list(r.table(TABLE_NAME).map(r.row["user_id"]).distinct().run(g.rdb_conn))
+    grouped_list_of_reviews = list(r.table(TABLE_NAME).run(g.rdb_conn))
+    grouped_list_of_reviews = defaultdict(grouped_list_of_reviews)
     print(grouped_list_of_reviews)
+    grouped_list_of_user_ids = {}
+    for key, group in groupby(grouped_list_of_reviews, lambda x: x[0]):
+        grouped_list_of_user_ids[key] = []
+        print(111)
+        for review_item in group:
+            print(222)
+            grouped_list_of_user_ids[key].append(review_item)
+            print(grouped_list_of_user_ids[key])  
+        grouped_list_of_reviews.append(grouped_list_of_user_ids[key])
+    """
+    for key, group in groupby(grouped_list_of_reviews, lambda x: x[0]):
+        for review in group:
+            print("A %s is a %s" % (review[1], key))
+        print(" ")
+    """
     return jsonify({'reviews': grouped_list_of_reviews})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
