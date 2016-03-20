@@ -58,9 +58,7 @@ def get_reviews():
     # grouped_list_of_reviews = list(r.table(TABLE_NAME).get_all('point', 'optional_comment').group('user_id').run(g.rdb_conn))
     # grouped_list_of_reviews = list(r.table(TABLE_NAME).map(r.row["user_id"]).distinct().run(g.rdb_conn))
     grouped_list_of_reviews = list(r.table(TABLE_NAME).run(g.rdb_conn))
-    grouped_list_of_reviews = defaultdict(grouped_list_of_reviews)
-    print(grouped_list_of_reviews)
-    grouped_list_of_user_ids = {}
+    """
     for key, group in groupby(grouped_list_of_reviews, lambda x: x[0]):
         grouped_list_of_user_ids[key] = []
         print(111)
@@ -69,6 +67,7 @@ def get_reviews():
             grouped_list_of_user_ids[key].append(review_item)
             print(grouped_list_of_user_ids[key])  
         grouped_list_of_reviews.append(grouped_list_of_user_ids[key])
+    """
     """
     for key, group in groupby(grouped_list_of_reviews, lambda x: x[0]):
         for review in group:
