@@ -1,6 +1,6 @@
 from flask import render_template, url_for, redirect, g, request, jsonify ##
 from app import app
-from .forms import TaskForm
+from .forms import ReviewForm
 import json
 
 # rethink imports
@@ -10,14 +10,15 @@ from rethinkdb.errors import RqlRuntimeError, RqlDriverError
 # rethink config
 RDB_HOST =  'localhost'
 RDB_PORT = 28015
-TODO_DB = 'todo'
+DB_NAME = 'wolt'
+TABLE_NAME = 'reviews'
 
 # db setup; only run once
 def dbSetup():
     connection = r.connect(host=RDB_HOST, port=RDB_PORT)
     try:
-        r.db_create(TODO_DB).run(connection)
-        r.db(TODO_DB).table_create('todos').run(connection)
+        r.db_create(DB_NAME).run(connection)
+        r.db(DB_NAME).table_create('reviews').run(connection)
         print('Database setup completed')
     except RqlRuntimeError:
         print ('Database already exists.')
@@ -29,7 +30,7 @@ dbSetup()
 @app.before_request
 def before_request():
     try:
-        g.rdb_conn = r.connect(host=RDB_HOST, port=RDB_PORT, db=TODO_DB)
+        g.rdb_conn = r.connect(host=RDB_HOST, port=RDB_PORT, db=DB_NAME)
     except RqlDriverError:
         abort(503, "Database connection could be established.")
 
@@ -43,29 +44,15 @@ def teardown_request(exception):
 
 @app.route('/', methods = ['GET', 'POST'])
 def index():
-        form = TaskForm()
+        form = ReviewForm()
         if form.validate_on_submit(): 
-                r.table('todos').insert({"name":form.label.data}).run(g.rdb_conn)
+                r.table('reviews').insert({"user_id" : form.user_id.data, "point" : form.point.data, "optional_comment":form.optional_comment.data}).run(g.rdb_conn)
                 return redirect(url_for('index'))
-        selection = list(r.table('todos').run(g.rdb_conn))
-        return render_template('index.html', form = form, tasks = selection)
-
-tasks = [
-    {
-        'id': 1,
-        'title': u'Buy groceries',
-        'description': u'Milk, Cheese, Pizza, Fruit, Tylenol', 
-        'done': False
-    },
-    {
-        'id': 2,
-        'title': u'Learn Python',
-        'description': u'Need to find a good Python tutorial on the web', 
-        'done': False
-    }
-]
+        reviews = list(r.table(TABLE_NAME).run(g.rdb_conn))
+        return render_template('index.html', form = form, reviews = reviews)
 
 @app.route('/api/v1.0/reviews', methods=['GET'])
-def get_tasks():
-    tasks = list(r.table('todos').run(g.rdb_conn))
-    return jsonify({'tasks': tasks})
+def get_reviews():
+    grouped_list_of_reviews = list(r.table(TABLE_NAME).group('user_id', 'point', 'optional_comment', multi=True).run(g.rdb_conn))
+    print(grouped_list_of_reviews)
+    return jsonify({'reviews': grouped_list_of_reviews})

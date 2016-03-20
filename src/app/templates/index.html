@@ -6,9 +6,11 @@
 
 <form action="" role="form" method="POST" name="add_task">
 	{{form.hidden_tag()}}
+	{{form.user_id}}
 	<p>
 		<h4>Send a review</h4>
-		{{form.label}}
+		<p>{{form.point}}</p>
+		<p>{{form.optional_comment}}</p>
 		<input type="submit" value="Send" class="btn btn-default btn-md">
 		{% for error in form.errors.label %}
 		<span style="color: red;">{{ error }}</span>
@@ -16,9 +18,44 @@
 	</p>
 </form>
 
+<!-- Projects Row -->
+<div class="row">
+    <div class="col-md-4 portfolio-item">
+        <a href="#">
+            <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+        </a>
+        <h3>
+            <a href="#">Project Name</a>
+        </h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+    </div>
+    <div class="col-md-4 portfolio-item">
+        <a href="#">
+            <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+        </a>
+        <h3>
+            <a href="#">Project Name</a>
+        </h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+    </div>
+    <div class="col-md-4 portfolio-item">
+        <a href="#">
+            <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+        </a>
+        <h3>
+            <a href="#">Project Name</a>
+        </h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+    </div>
+</div>
+<!-- /.row -->
 
-{% for task in tasks %}
-  <li>{{ task.name }}</li>
-{% endfor %}
-
+<ul class="grid">
+	{% for review in reviews %}
+		<li class="grid-item">
+	  		<p>{{ review.point }}</p>
+	  		<p>{{ review.optional_comment }}</p>
+		</li>
+	{% endfor %}
+</ul>
 {% endblock %}

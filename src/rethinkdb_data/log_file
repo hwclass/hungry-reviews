@@ -15,3 +15,22 @@
 2016-03-20T17:18:40.079054000 41.832183s info: Table 6d7460ee-e1c9-46de-9459-9d5d6cc0afac: Added replica on this server.
 2016-03-20T17:18:41.336503000 43.089631s info: Table 6d7460ee-e1c9-46de-9459-9d5d6cc0afac: Starting a new Raft election for term 1.
 2016-03-20T17:18:41.356450000 43.109578s info: Table 6d7460ee-e1c9-46de-9459-9d5d6cc0afac: This server is Raft leader for term 1. Latest log index is 0.
+2016-03-20T20:31:24.047999000 11605.801128s error: Inaccessible database file: "/Users/hwclass/Repos/hungry-reviews/flask-rethink/rethinkdb_data/tmp/9a4746c0-d9b1-48ae-9164-8c7383c6f23c.create": No such file or directory\nSome possible reasons:\n- the database file couldn't be created or opened for reading and writing
+2016-03-20T20:32:30.226623000 5.683688s notice: Running rethinkdb 2.2.2 (CLANG 7.0.2 (clang-700.1.81))...
+2016-03-20T20:32:30.240987000 5.698049s notice: Running on Darwin 14.1.0 x86_64
+2016-03-20T20:32:30.241043000 5.698102s notice: Loading data from directory /Users/hwclass/Repos/hungry-reviews/src/rethinkdb_data
+2016-03-20T20:32:30.275729000 5.732789s info: Automatically using cache size of 1008 MB
+2016-03-20T20:32:30.276106000 5.733166s notice: Listening for intracluster connections on port 29015
+2016-03-20T20:32:30.397209000 5.854268s notice: Listening for client driver connections on port 28015
+2016-03-20T20:32:30.397449000 5.854509s notice: Listening for administrative HTTP connections on port 8080
+2016-03-20T20:32:30.397451000 5.854510s notice: Listening on addresses: 127.0.0.1, ::1
+2016-03-20T20:32:30.397452000 5.854511s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2016-03-20T20:32:30.397452001 5.854512s notice: Server ready, "Bariss_MacBook_Air_local_7k7" fe3898f9-615f-4b36-98e8-5c3525cc6547
+2016-03-20T20:32:31.922798000 7.379858s info: Table 9a4746c0-d9b1-48ae-9164-8c7383c6f23c: Starting a new Raft election for term 1.
+2016-03-20T20:32:31.943608000 7.400668s info: Table 9a4746c0-d9b1-48ae-9164-8c7383c6f23c: This server is Raft leader for term 1. Latest log index is 0.
+2016-03-20T20:32:32.037812000 7.494873s info: Table 6d7460ee-e1c9-46de-9459-9d5d6cc0afac: Starting a new Raft election for term 2.
+2016-03-20T20:32:32.052326000 7.509386s info: Table 6d7460ee-e1c9-46de-9459-9d5d6cc0afac: This server is Raft leader for term 2. Latest log index is 3.
+2016-03-20T20:32:33.650750000 9.107810s notice: A newer version of the RethinkDB server is available: 2.2.5. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+2016-03-20T20:32:36.276925000 11.733985s info: Table 57f2fdbe-49d1-4e74-8ad0-806695aa2bd7: Added replica on this server.
+2016-03-20T20:32:37.832538000 13.289597s info: Table 57f2fdbe-49d1-4e74-8ad0-806695aa2bd7: Starting a new Raft election for term 1.
+2016-03-20T20:32:37.849276000 13.306336s info: Table 57f2fdbe-49d1-4e74-8ad0-806695aa2bd7: This server is Raft leader for term 1. Latest log index is 0.
