@@ -1,0 +1,17 @@
+2016-03-20T17:18:03.343584000 5.096714s notice: Recursively removing directory /Users/hwclass/Repos/hungry-reviews/flask-rethink/rethinkdb_data/tmp
+2016-03-20T17:18:03.345234000 5.098368s notice: Initializing directory /Users/hwclass/Repos/hungry-reviews/flask-rethink/rethinkdb_data
+2016-03-20T17:18:03.345325000 5.098454s info: Creating a default database for your convenience. (This is because you ran 'rethinkdb' without 'create', 'serve', or '--join', and the directory '/Users/hwclass/Repos/hungry-reviews/flask-rethink/rethinkdb_data' did not already exist or is empty.)
+2016-03-20T17:18:03.345462000 5.098591s notice: Running rethinkdb 2.2.2 (CLANG 7.0.2 (clang-700.1.81))...
+2016-03-20T17:18:03.350647000 5.103776s notice: Running on Darwin 14.1.0 x86_64
+2016-03-20T17:18:03.350694000 5.103822s notice: Loading data from directory /Users/hwclass/Repos/hungry-reviews/flask-rethink/rethinkdb_data
+2016-03-20T17:18:03.440885000 5.194013s info: Automatically using cache size of 927 MB
+2016-03-20T17:18:03.441502000 5.194630s notice: Listening for intracluster connections on port 29015
+2016-03-20T17:18:03.443063000 5.196191s notice: Listening for client driver connections on port 28015
+2016-03-20T17:18:03.443189000 5.196317s notice: Listening for administrative HTTP connections on port 8080
+2016-03-20T17:18:03.443195000 5.196322s notice: Listening on addresses: 127.0.0.1, ::1
+2016-03-20T17:18:03.443196000 5.196323s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2016-03-20T17:18:03.443199000 5.196326s notice: Server ready, "Bariss_MacBook_Air_local_7k7" fe3898f9-615f-4b36-98e8-5c3525cc6547
+2016-03-20T17:18:07.155199000 8.908327s notice: A newer version of the RethinkDB server is available: 2.2.5. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+2016-03-20T17:18:40.079054000 41.832183s info: Table 6d7460ee-e1c9-46de-9459-9d5d6cc0afac: Added replica on this server.
+2016-03-20T17:18:41.336503000 43.089631s info: Table 6d7460ee-e1c9-46de-9459-9d5d6cc0afac: Starting a new Raft election for term 1.
+2016-03-20T17:18:41.356450000 43.109578s info: Table 6d7460ee-e1c9-46de-9459-9d5d6cc0afac: This server is Raft leader for term 1. Latest log index is 0.

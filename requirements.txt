@@ -1,0 +1,13 @@
+falcon==0.3.0
+Flask==0.10.1
+Flask-WTF==0.12
+hug==2.0.0
+itsdangerous==0.24
+Jinja2==2.8
+MarkupSafe==0.23
+python-mimeparse==1.5.1
+requests==2.9.1
+rethinkdb==2.2.0.post5
+six==1.10.0
+Werkzeug==0.11.4
+WTForms==2.1
