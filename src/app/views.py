@@ -48,8 +48,8 @@ def teardown_request(exception):
 def index():
         form = ReviewForm()
         if form.validate_on_submit(): 
-                r.table('reviews').insert({"user_id" : form.user_id.data, "point" : form.point.data, "optional_comment":form.optional_comment.data}).run(g.rdb_conn)
-                return redirect(url_for('index'))
+            r.table('reviews').insert({"user_id" : form.user_id.data, "point" : form.point.data, "optional_comment":form.optional_comment.data}).run(g.rdb_conn)
+            return redirect(url_for('index'))
         reviews = list(r.table(TABLE_NAME).run(g.rdb_conn))
         return render_template('index.html', form = form, reviews = reviews)
 

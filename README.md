@@ -58,4 +58,3 @@ python3 run.py
 curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET http://localhost:5000/api/v.0/reviews
 ```
 
-
